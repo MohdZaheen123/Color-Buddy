@@ -9,8 +9,8 @@ export default function Navbar() {
            <Link href='/' className='text-xl font-bold align-top hover:transition-all hover:text-blue-400 duration-1000 ease-in-out'>ColorBuddy</Link>
             </div>
             <ul className='flex justify-around text-md font-semibold'>
-                <Link href='/' className='mx-2 hover:transition-all hover:text-blue-400 duration-1000 ease-in-out'>About</Link>
-                <Link href='/' className='mx-2 hover:transition-all hover:text-blue-400 duration-1000 ease-in-out'>Contact</Link>
+                <Link href='/about' className='mx-2 hover:transition-all hover:text-blue-400 duration-1000 ease-in-out'>About</Link>
+                <Link href='/contact' className='mx-2 hover:transition-all hover:text-blue-400 duration-1000 ease-in-out'>Contact</Link>
             </ul>
         </div>
     </nav>

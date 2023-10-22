@@ -20,24 +20,26 @@ export default function Colorpicker() {
     const [green,setGreen]=useState(254)
 
     const getNearestTailwindColour = nearestColour.from(v3_3_colours);
-    let nearestTailwindColour = null;
-    nearestTailwindColour = getNearestTailwindColour(color);
-    let clrstr =`bg-${nearestTailwindColour['name']}`
+    const [nearestTailwindColour,setNearestTailwindColour]=useState({})
+    // nearestTailwindColour = getNearestTailwindColour(color);
     
     useEffect(()=>{
       let hex = rgbToHex(red,green,blue)
       setColor(hex)
+      if (isValidColour(color)) {
+        setNearestTailwindColour(getNearestTailwindColour(color))
+      }
     },[red,green,blue])
   return (
-    <div className="max-w-7xl mx-auto min-h-screen">
+    <div className="max-w-7xl mx-auto min-h-[20rem]">
 
-        <div className="max-w-4xl mx-auto border border-red-600 text-blue-100 text-xl">
+        <div className="max-w-4xl mx-auto text-blue-100 text-xl">
                <p className="text-center">Choose The Color Below</p>
-               <div className="flex max-w-xl justify-around my-5 mx-auto border border-blue-600">
+               <div className="flex max-w-xl justify-around my-5 mx-auto">
                  <div className=" border-r-2 pr-4 pt-5 border-white">
                   <div className="flex my-2">
                     <label htmlFor="red" className="text-red-600">RED : </label>
-                    <input className="bg-gray-600 rounded-md text-red-600 px-4 w-20 mx-9" type="text" id="red" value={red} onChange={(e)=>setRed(e.target.value)} />
+                    <input className="bg-gray-600 rounded-md text-red-400 px-4 w-20 mx-9" type="text" id="red" value={red} onChange={(e)=>setRed(e.target.value)} />
                   </div>
                   <div className="flex my-2">
                     <label htmlFor="green" className="text-green-600">GREEN : </label>
@@ -45,7 +47,7 @@ export default function Colorpicker() {
                   </div>
                   <div className="flex my-2">
                     <label htmlFor="blue" className="text-blue-600">BLUE : </label>
-                    <input className="bg-gray-600 rounded-md text-blue-600 px-4 w-20 mx-6" type="text" id="blue" value={blue} onChange={(e)=>setBlue(e.target.value)} />
+                    <input className="bg-gray-600 rounded-md text-blue-400 px-4 w-20 mx-6" type="text" id="blue" value={blue} onChange={(e)=>setBlue(e.target.value)} />
                   </div>
                  </div>
                  <div className="flex flex-col items-center justify-center">
