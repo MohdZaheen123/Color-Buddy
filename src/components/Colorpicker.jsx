@@ -39,8 +39,9 @@ export default function Colorpicker() {
                <p className="text-center">Choose The Color Below</p>
                <div className="flex max-w-xl justify-around my-5 mx-auto">
                  <motion.div
-                 initial={{x:-100}}
-                 whileInView={{x:0}}
+                 initial={{scale:0}}
+                 whileInView={{scale:1}}
+                 transition={{delay:0.3}}
                  className=" border-r-2 pr-4 pt-5 border-white">
                   <div className="flex my-2">
                     <label htmlFor="red" className="text-red-600">RED : </label>
@@ -57,8 +58,9 @@ export default function Colorpicker() {
                  </motion.div>
 
                  <motion.div
-                 initial={{x:300}}
-                 whileInView={{x:-40}}
+                 initial={{scale:0}}
+                 whileInView={{scale:1}}
+                 transition={{delay:0.3}}
                  className="flex flex-col items-center justify-center">
                   <span>Color :</span>
                   {/* <div className={`w-24 h-24 rounded-lg bg-${nearestTailwindColour['name']}`}></div> */}
